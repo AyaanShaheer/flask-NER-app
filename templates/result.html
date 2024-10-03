@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NER Results</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="text-center">NER Results</h1>
+                
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Input Text:</h5>
+                        <p class="card-text">{{ text }}</p>
+                    </div>
+                </div>
+                
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Recognized Entities</h5>
+                        <ul class="list-group list-group-flush">
+                            {% for entity, label in entities %}
+                                <li class="list-group-item">
+                                    <strong>{{ entity }}</strong> - <span class="badge badge-primary">{{ label }}</span>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <a href="/" class="btn btn-secondary btn-lg">Analyze Another Text</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NER Results</title>
+</head>
+<body>
+    <h1>NER Results</h1>
+    <p>Input Text: {{ text }}</p>
+    <h2>Entities:</h2>
+    <ul>
+        {% for entity, label in entities %}
+            <li>{{ entity }} ({{ label }})</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Analyze Another Text</a>
+</body>
+</html>
+
+
+-->
